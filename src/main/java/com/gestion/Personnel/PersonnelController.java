@@ -3,17 +3,22 @@ package com.gestion.Personnel;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 //import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class PersonnelController {
 
 	@Autowired
@@ -21,13 +26,13 @@ public class PersonnelController {
 	
 	
 	//Afficher tous les personnels
-	@GetMapping("api/personnel")
+	@GetMapping("/personnel")
 	public List<Personnel> getAllNotes() {
 	    return Ipersonnel.findAll();
 	}
 	
 	// get un personnel
-	@GetMapping("api/personnel/{id}")
+	@GetMapping("/personnel/{id}")
 	public Optional<Personnel> getPersonneById(@PathVariable(value = "id") Long personneId) {
 	    return Ipersonnel.findById(personneId);
 	}
@@ -39,9 +44,26 @@ public class PersonnelController {
 	    return Ipersonnel.save(pers);
 	}
 	*/
-	//ajouter un produit
-    @PostMapping(value = "/personne")
+	//Ajouter un personnel
+    @PostMapping(value = "/addPersonne")
     public void ajouterPersonne(@RequestBody Personnel pers) {
     	Ipersonnel.save(pers);
     }
+    
+    //Update Personnel
+    @PutMapping("/UpPersonnel")
+    public Personnel UpPersonnel(@PathVariable(value="id") Long idUp , @Valid @RequestBody Personnel persAll ) {
+    	
+    	 
+    	 Personnel idPers = Ipersonnel.getOne(idUp);
+    	 
+    	 idPers.setNom_mission(persAll.getNom_mission());
+    	 idPers.setLieux(persAll.getLieux());
+    	 
+    	 Personnel Update = Ipersonnel.save(idPers);
+    	 
+    	 return Update;
+    }
+    
+    
 }
