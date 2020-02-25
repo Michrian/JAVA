@@ -12,46 +12,55 @@ import javax.persistence.Id;
 public class Personnel {
 @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
- private String nom_mission;
- private String lieux;
- private String tache;
- private String description;
- 
- //information que nous ne souhaitons pas exposer
- 
+ private String nom;
+ private String prenom;
+ private String poste;
+ private String matricule;
+ private String adresse;
+ private String tel;
 public Long getId() {
 	return id;
 }
 public void setId(Long id) {
 	this.id = id;
 }
-public String getLieux() {
-	return lieux;
+public String getNom() {
+	return nom;
 }
-public void setLieux(String lieux) {
-	this.lieux = lieux;
+public void setNom(String nom) {
+	this.nom = nom;
 }
-public String getTache() {
-	return tache;
+public String getPrenom() {
+	return prenom;
 }
-public void setTache(String tache) {
-	this.tache = tache;
+public void setPrenom(String prenom) {
+	this.prenom = prenom;
 }
-public String getDescription() {
-	return description;
+public String getPoste() {
+	return poste;
 }
-public void setDescription(String description) {
-	this.description = description;
+public void setPoste(String poste) {
+	this.poste = poste;
 }
-
-public String getNom_mission() {
-	return nom_mission;
+public String getMatricule() {
+	return matricule;
 }
-public void setNom_mission(String nom_mission) {
-	this.nom_mission = nom_mission;
+public void setMatricule(String matricule) {
+	this.matricule = matricule;
+}
+public String getAdresse() {
+	return adresse;
+}
+public void setAdresse(String adresse) {
+	this.adresse = adresse;
+}
+public String getTel() {
+	return tel;
+}
+public void setTel(String tel) {
+	this.tel = tel;
 }
  
 
- 
 	  
 }

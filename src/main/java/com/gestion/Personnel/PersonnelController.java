@@ -58,8 +58,8 @@ public class PersonnelController {
     	 
     	 Personnel idPers = Ipersonnel.getOne(idUp);
     	 
-    	 idPers.setNom_mission(persAll.getNom_mission());
-    	 idPers.setLieux(persAll.getLieux());
+    	 idPers.setNom(persAll.getNom());
+    	 idPers.setPrenom(persAll.getPrenom());
     	 
     	 Personnel Update = Ipersonnel.save(idPers);
     	 
