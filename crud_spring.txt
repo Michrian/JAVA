@@ -68,12 +68,13 @@ public class PersonnelController {
     
     
     @DeleteMapping("/delPersonnel/{id}")
-    public Optional<?> delPersonnel (@PathVariable(value="id") Long idDel) {
+    public Personnel delPersonnel (@PathVariable(value="id") Long idDel) {
     	
-    	     Optional<Personnel> persDel = Ipersonnel.findById(idDel);
+    	     Object persDel = Ipersonnel.findById(idDel);
     	    
-    	     Ipersonnel.delete(persDel.get());
-    	    return persDel;
+    	      Ipersonnel.delete((Personnel) persDel);
+    	    
+    			return (Personnel) persDel;
     	
     }
     
