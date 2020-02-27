@@ -8,6 +8,8 @@ import javax.validation.Valid;
 //import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -68,13 +70,14 @@ public class PersonnelController {
     
     
     @DeleteMapping("/delPersonnel/{id}")
-    public Optional<?> delPersonnel (@PathVariable(value="id") Long idDel) {
+    public ResponseEntity<?> delPersonnel (@PathVariable(value="id") Long idDel) {
     	
     	     Optional<Personnel> persDel = Ipersonnel.findById(idDel);
     	    
     	     Ipersonnel.delete(persDel.get());
-    	    return persDel;
-    	
+    	   //return persDel;
+    	    //return ResponseEntity.ok().build();
+    	    return new ResponseEntity<>("Suppression avec succèes", HttpStatus.OK);
     }
     
     
