@@ -1,46 +1,49 @@
 package com.gestion.Personnel;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-//import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 
-@WebMvcTest(PersonnelController.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
+@ContextConfiguration(classes = PersonnelController.class)
+
 public class PersonnelControllerTest {
-	 @Autowired
-	  private MockMvc mockMvc;
-	 
-	 @MockBean
-	 IPersonnelRepository Ipersonnel;
-	 
-	@Test
-	public void getTousLesPersonnels() throws Exception {
-	        
-	  // AMPIASA MOCKITO TSIK 
-		// @WHEN
-		/*when(Ipersonnel.findAll()).thenReturn(
-				Collections.emptyList());
+
+	
+	/*@Test
+	public void AffichernaNyListeRehetra() {
+	  PersonnelController personne = Mockito.mock(PersonnelController.class);
+	  
+      Mockito.when(personne.getAllNotes()).thenReturn(personne.getAllNotes() );
+	  
+	}*/
+
+	@Autowired
+	 private MockMvc mockMvc;
+	
+	/*@Test
+    public void testUserController () throws Exception {
 		
- 	    MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/personnel")
- 	    .accept(org.springframework.http.MediaType.APPLICATION_JSON)).andReturn();
- 
- 	  System.out.println(mvcResult.getResponse());
- 	  
- 	  
- 	   //VERIFY
- 	  verify(Ipersonnel).findAll();*/
-		mockMvc.perform( MockMvcRequestBuilders
-			      .get("/personnel")
-			      .accept(org.springframework.http.MediaType.APPLICATION_JSON))
-			      .andDo(print());
-	        	
-	}
-		
+        ResultMatcher ok = MockMvcResultMatchers.status()
+                                                .isOk();
+
+        MockHttpServletRequestBuilder builder = MockMvcRequestBuilders.get("/api/personnel?size=2");
+        this.mockMvc.perform(builder)
+                    .andExpect(ok);
+
+    }*/
+	
+	
+	
+	
 	
 }

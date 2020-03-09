@@ -1,5 +1,4 @@
 package com.gestion.Personnel;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -41,33 +40,37 @@ public class PersonnelController {
 	}
 	
 	// Creer un personnel
-	
 	/*@RequestMapping(value = "/AddPersonne", consumes = "application/json",headers = "content-type=application/json")
 	public Personnel createPersonnel(@Valid @RequestBody Personnel pers) {
 	    return Ipersonnel.save(pers);
-	}
-	*/
+	}*/
+	
 	//Ajouter un personnel
     @PostMapping(value = "/addPersonne")
     public void ajouterPersonne(@RequestBody Personnel pers) {
     	Ipersonnel.save(pers);
     }
     
+   
+     
     //Update Personnel
     @PutMapping("/UpPersonnel/{id}")
-    public Personnel UpPersonnel(@PathVariable(value="id") Long idUp , @Valid @RequestBody Personnel persAll ) {
+    public ResponseEntity<?> UpPersonnel(@PathVariable(value="id") Long idUp , @Valid @RequestBody Personnel persAll ) {
     	
     	 
     	 Personnel idPers = Ipersonnel.getOne(idUp);
     	 
     	 idPers.setNom(persAll.getNom());
     	 idPers.setPrenom(persAll.getPrenom());
+    	 idPers.setMatricule(persAll.getMatricule());
     	 
-    	 Personnel Update = Ipersonnel.save(idPers);
+    	 Ipersonnel.save(idPers);
     	 
-    	 return Update;
+    	 return new ResponseEntity<>("Modification effectué", HttpStatus.CREATED);
     }
     
+    
+    // Test Unitaire  sur URI delete
     
     @DeleteMapping("/delPersonnel/{id}")
     public ResponseEntity<?> delPersonnel (@PathVariable(value="id") Long idDel) {
@@ -75,10 +78,22 @@ public class PersonnelController {
     	     Optional<Personnel> persDel = Ipersonnel.findById(idDel);
     	    
     	     Ipersonnel.delete(persDel.get());
-    	   //return persDel;
-    	    //return ResponseEntity.ok().build();
     	    return new ResponseEntity<>("Suppression avec succèes", HttpStatus.OK);
     }
+    
+    
+    public  int calculer(int a, int b) {
+        int res = a + b;
+        
+        if (a == 0) {
+          res = b * 2;
+        } 
+        
+        if (b == 0) {
+          res = a * a;     
+        }
+        return res; 
+      }
     
     
 }
