@@ -1,15 +1,15 @@
 package com.gestion.Personnel;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
+/*import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;*/
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,8 +27,8 @@ public class PersonnelControllerTest {
 	  
 	}*/
 
-	@Autowired
-	 private MockMvc mockMvc;
+	//@Autowired
+	// private MockMvc mockMvc;
 	
 	/*@Test
     public void testUserController () throws Exception {

@@ -3,18 +3,20 @@ package com.gestion;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Configuration;
+//import org.springframework.context.annotation.Configuration;
+/*
+
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;*/
 
 
 
 @SpringBootApplication
 public class SpringGestionApplication implements CommandLineRunner {
 
-	 @Configuration
+	 /*@Configuration
 	 static class SecuritConfig extends GlobalAuthenticationConfigurerAdapter{
 		 @Override
 		 public void init(AuthenticationManagerBuilder auth) throws Exception {
@@ -25,7 +27,7 @@ public class SpringGestionApplication implements CommandLineRunner {
 		 }
 		
 	 }
-	 
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(SpringGestionApplication.class, args);
 	}
